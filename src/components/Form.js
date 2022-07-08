@@ -5,6 +5,7 @@ export default function Form() {
     <div>
       <h1>ADD NEW BOOK</h1>
       <input type="text" placeholder="book title" />
+      <input type="text" placeholder="book author" />
       <select name="cars" id="cars">
         <option value="Action">Action</option>
         <option value="History">History</option>

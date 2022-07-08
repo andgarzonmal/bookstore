@@ -1,26 +1,35 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './components/Nav';
+import Categories from './components/Categories';
+import Bookscontainer from './components/Bookscontainer';
+import Form from './components/Form';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <div className="App">
+              <Bookscontainer />
+              <Form />
+            </div>
+          )}
+        />
+        <Route
+          path="/Categories"
+          element={(
+            <div className="App">
+              <Categories />
+            </div>
+        )}
+        />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

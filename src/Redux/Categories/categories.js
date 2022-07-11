@@ -3,16 +3,16 @@
 const CHECKSTATUS = 'bookstore/categories/CHECKSTATUS';
 const initialState = [];
 
-//reducer
-export function categoriesReducers(state=initialState, action) {
+// reducer
+export function categoriesReducers(state = initialState, action) {
   switch (action.type) {
     case CHECKSTATUS:
-      return 'Under construction'
+      return 'Under construction';
     default:
-      return initialState
+      return state;
   }
 }
 
-// Action creators 
+// Action creators
 
-const checkStatus = () => ({type:CHECKSTATUS})
+export const checkStatus = () => ({ type: CHECKSTATUS });

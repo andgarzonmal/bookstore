@@ -14,7 +14,7 @@ export function booksReducer(state = initialState, action) {
       ];
     }
     case DELETEBOOKS: {
-      const ActualBooks = state.filter((book) => book.id === action.payload);
+      const ActualBooks = state.filter((book) => book.id !== action.payload);
       return ActualBooks;
     }
     default:

@@ -8,9 +8,7 @@ export default function Categories() {
   const [state, setstate] = useState(false);
 
   const handleButton = () => {
-    console.log(state);
     setstate((state) => !state);
-    console.log(status);
     dispatch(checkStatus());
   };
 

@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 function BookList({
   title, author, deletebook, id,
 }) {
+  const removeBook = (id) => {
+    deletebook(id);
+  };
+
   return (
     <li>
       <div>
@@ -14,7 +18,7 @@ function BookList({
             <button type="button">Comments</button>
           </li>
           <li>
-            <button type="button" onClick={() => deletebook(id)}>Remove</button>
+            <button type="button" onClick={() => removeBook(id)}>Remove</button>
           </li>
           <li>
             <button type="button">Edit</button>

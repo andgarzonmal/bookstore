@@ -1,7 +1,17 @@
 // Actions
 const ADDBOOK = 'bookstore/books/ADDBOOKS';
 const DELETEBOOKS = 'bookstore/books/DELETEBOOKS';
-const initialState = [];
+const initialState = [{
+  id: 1,
+  title: 'Book one',
+  author: 'Author one',
+},
+{
+  id: 2,
+  title: 'Book two',
+  author: 'Author two',
+},
+];
 
 // Reducer
 

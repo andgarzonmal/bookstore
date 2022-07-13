@@ -1,7 +1,7 @@
 // Actions
 
 const CHECKSTATUS = 'bookstore/categories/CHECKSTATUS';
-const initialState = [];
+const initialState = '';
 
 // reducer
 export function categoriesReducers(state = initialState, action) {

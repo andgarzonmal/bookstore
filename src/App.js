@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import Categories from './components/Categories';
 import Bookscontainer from './components/Bookscontainer';
 import Form from './components/Form';

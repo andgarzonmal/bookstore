@@ -1,4 +1,4 @@
-import { getData, removeData, uploadData } from '../../helpers/fetch';
+import { getData, removeData, uploadData } from '../../Services/fetch';
 // Actions
 const ADDBOOK = 'bookstore/books/ADDBOOKS';
 const DELETEBOOKS = 'bookstore/books/DELETEBOOKS';

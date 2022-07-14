@@ -33,10 +33,7 @@ export function booksReducer(state = initialState, action) {
 
 export const addbook = (book) => ({ type: ADDBOOK, payload: book });
 
-
 export const deletebook = (id) => ({ type: DELETEBOOKS, payload: id });
-
-
 
 export const readBooks = () => async (dispatch) => {
   const books = await getData();

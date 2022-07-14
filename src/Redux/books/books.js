@@ -1,5 +1,4 @@
-import { getData } from '../../helpers/fetch';
-
+import { getData, removeData, uploadData } from '../../helpers/fetch';
 // Actions
 const ADDBOOK = 'bookstore/books/ADDBOOKS';
 const DELETEBOOKS = 'bookstore/books/DELETEBOOKS';
@@ -31,9 +30,23 @@ export function booksReducer(state = initialState, action) {
 
 // Action creators
 
-export const addbook = (book) => ({ type: ADDBOOK, payload: book });
+// export const addbook = (book) => ({ type: ADDBOOK, payload: book });
+export const addbook = (book) => async (dispatch) => {
+  await uploadData(book);
+  dispatch({
+    type: ADDBOOK, payload: book,
+  });
+};
 
-export const deletebook = (id) => ({ type: DELETEBOOKS, payload: id });
+// export const deletebook = (id) => ({ type: DELETEBOOKS, payload: id });
+
+export const deletebook = (id) => async (dispatch) => {
+  await removeData(id);
+  dispatch({
+    type: DELETEBOOKS,
+    payload: id,
+  });
+};
 
 export const readBooks = () => async (dispatch) => {
   const books = await getData();

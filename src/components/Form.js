@@ -5,6 +5,8 @@ import { addbook } from '../Redux/books/books';
 export default function Form() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [] 
+
   const dispatch = useDispatch();
 
   const handleTitle = (e) => {
@@ -41,7 +43,7 @@ export default function Form() {
         onChange={(e) => handleAuthor(e)}
         placeholder="book author"
       />
-      <select name="cars" id="cars">
+      <select name="category" id="category">
         <option value="Action">Action</option>
         <option value="History">History</option>
       </select>

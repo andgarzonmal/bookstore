@@ -8,24 +8,22 @@ export const getData = async () => {
 };
 
 export const uploadData = async (book) => {
-  const response = await fetch(url, {
+  const apiObj = { ...book };
+  delete Object.assign(apiObj, { item_id: apiObj.id }).id;
+  await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(book),
+    body: JSON.stringify(apiObj),
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  const data = await response.json();
-  return data;
 };
 
 export const removeData = async (id) => {
-  const response = await fetch(`${url}/${id}`, {
+  await fetch(`${url}/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  const data = await response.json();
-  return data;
 };

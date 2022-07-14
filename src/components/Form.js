@@ -28,7 +28,6 @@ export default function Form() {
       author,
       category,
     };
-    console.log(mybook);
     dispatch(addbook(mybook));
     setTitle('');
     setAuthor('');

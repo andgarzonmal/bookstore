@@ -1,17 +1,10 @@
+import { getData, removeData, uploadData } from '../../helpers/fetch';
 // Actions
 const ADDBOOK = 'bookstore/books/ADDBOOKS';
 const DELETEBOOKS = 'bookstore/books/DELETEBOOKS';
-const initialState = [{
-  id: 1,
-  title: 'Book one',
-  author: 'Author one',
-},
-{
-  id: 2,
-  title: 'Book two',
-  author: 'Author two',
-},
-];
+const READ_BOOKS = 'bookstore/books/READ_BOOKS';
+
+const initialState = [];
 
 // Reducer
 
@@ -27,6 +20,9 @@ export function booksReducer(state = initialState, action) {
       const ActualBooks = state.filter((book) => book.id !== action.payload);
       return ActualBooks;
     }
+    case READ_BOOKS: {
+      return action.payload;
+    }
     default:
       return initialState;
   }
@@ -34,5 +30,28 @@ export function booksReducer(state = initialState, action) {
 
 // Action creators
 
-export const addbook = (book) => ({ type: ADDBOOK, payload: book });
-export const deletebook = (id) => ({ type: DELETEBOOKS, payload: id });
+// export const addbook = (book) => ({ type: ADDBOOK, payload: book });
+export const addbook = (book) => async (dispatch) => {
+  await uploadData(book);
+  dispatch({
+    type: ADDBOOK, payload: book,
+  });
+};
+
+// export const deletebook = (id) => ({ type: DELETEBOOKS, payload: id });
+
+export const deletebook = (id) => async (dispatch) => {
+  await removeData(id);
+  dispatch({
+    type: DELETEBOOKS,
+    payload: id,
+  });
+};
+
+export const readBooks = () => async (dispatch) => {
+  const books = await getData();
+  dispatch({
+    type: READ_BOOKS,
+    payload: books,
+  });
+};

@@ -5,6 +5,8 @@ import { addbook } from '../Redux/books/books';
 export default function Form() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
+
   const dispatch = useDispatch();
 
   const handleTitle = (e) => {
@@ -15,11 +17,16 @@ export default function Form() {
     setAuthor(e.target.value);
   };
 
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+  };
+
   const handleSubmit = () => {
     const mybook = {
-      id: Math.floor(Math.random() * 100),
+      id: `${Math.floor(Math.random() * 100)}`,
       title,
       author,
+      category,
     };
     dispatch(addbook(mybook));
     setTitle('');
@@ -34,14 +41,17 @@ export default function Form() {
         value={title}
         onChange={(e) => handleTitle(e)}
         placeholder="book title"
+        required
       />
       <input
         type="text"
         value={author}
         onChange={(e) => handleAuthor(e)}
         placeholder="book author"
+        required
       />
-      <select name="cars" id="cars">
+      <select name="category" id="category" onChange={(e) => handleCategory(e)}>
+        <option value="default">Choose category...</option>
         <option value="Action">Action</option>
         <option value="History">History</option>
       </select>
